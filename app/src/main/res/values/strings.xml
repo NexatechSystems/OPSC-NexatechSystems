@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">StaffSyncV3</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="leave_types">
+        <item>Annual Leave</item>
+        <item>Sick Leave</item>
+        <item>Casual Leave</item>
+        <item>Other</item>
+    </string-array>
+</resources>

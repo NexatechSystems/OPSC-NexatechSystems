@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.nexatech.staffsyncv3.Fragments.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="Fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="Fragments.MessageFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_message" />
+
+    <fragment
+        android:id="@+id/clockingFragment"
+        android:name="Fragments.ClockingFragment"
+        android:label="fragment_clocking"
+        tools:layout="@layout/fragment_clocking">
+    </fragment>
+
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="Fragments.RequestFragment"
+        android:label="fragment_request"
+        tools:layout="@layout/fragment_request" >
+        <action
+            android:id="@+id/action_requestFragment_to_leaveFragment"
+            app:destination="@id/leaveFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_requestFragment_to_payslipFragment"
+            app:destination="@id/payslipFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_requestFragment_to_personalFragment"
+            app:destination="@id/personalFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="Fragments.LearnFragment"
+        android:label="fragment_learn"
+        tools:layout="@layout/fragment_learn" />
+    <fragment
+        android:id="@+id/leaveFragment"
+        android:name="Fragments.SubFragments.LeaveFragment"
+        android:label="fragment_leave"
+        tools:layout="@layout/fragment_leave" >
+        <action
+            android:id="@+id/action_leaveFragment_to_requestFragment"
+            app:destination="@id/requestFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/payslipFragment"
+        android:name="Fragments.SubFragments.PayslipFragment"
+        android:label="fragment_payslip"
+        tools:layout="@layout/fragment_payslip" >
+        <action
+            android:id="@+id/action_payslipFragment_to_requestFragment"
+            app:destination="@id/requestFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="Fragments.SubFragments.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_requestFragment"
+            app:destination="@id/requestFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="Fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+    </fragment>
+
+</navigation>
