@@ -13,8 +13,8 @@
         <action
             android:id="@+id/action_splashFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
     </fragment>
 
     <fragment
@@ -27,7 +27,13 @@
         android:id="@+id/messageFragment"
         android:name="Fragments.MessageFragment"
         android:label="Messages"
-        tools:layout="@layout/fragment_message" />
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_announcementFragment"
+            app:destination="@id/announcementFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+    </fragment>
 
     <fragment
         android:id="@+id/clockingFragment"
@@ -56,6 +62,11 @@
             app:destination="@id/personalFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_requestFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
     </fragment>
 
     <fragment
@@ -104,8 +115,19 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/announcementFragment"
+        android:name="Fragments.AnnouncementFragment"
+        android:label="fragment_announcement"
+        tools:layout="@layout/fragment_announcement" >
+        <action
+            android:id="@+id/action_announcementFragment_to_messageFragment"
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
     </fragment>
 
 </navigation>

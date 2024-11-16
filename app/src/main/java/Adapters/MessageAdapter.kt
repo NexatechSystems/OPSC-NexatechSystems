@@ -10,9 +10,9 @@ import com.nexatech.staffsyncv3.R
 
 class MessageAdapter(private val messages: List<Message>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
 
-    inner class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val title: TextView = itemView.findViewById(R.id.messageTitle)
-        val content: TextView = itemView.findViewById(R.id.messageContent)
+    class MessageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+        val messageTextView: TextView = itemView.findViewById(R.id.messageTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
@@ -22,9 +22,11 @@ class MessageAdapter(private val messages: List<Message>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
         val message = messages[position]
-        holder.title.text = message.title
-        holder.content.text = message.content
+        holder.titleTextView.text = message.subject
+        holder.messageTextView.text = message.message
     }
 
-    override fun getItemCount() = messages.size
+    override fun getItemCount(): Int {
+        return messages.size
+    }
 }

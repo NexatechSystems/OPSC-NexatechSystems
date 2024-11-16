@@ -50,4 +50,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPayslips" />
 
+    <ImageView
+        android:id="@+id/btnLogout"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logout_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLeaveRequests" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

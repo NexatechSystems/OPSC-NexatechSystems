@@ -26,7 +26,7 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:text="JohnDoe@nexatech.com"
+        android:text="..."
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -127,7 +127,7 @@
         app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/txtChangeEmail"
-        tools:text="+27725817895" />
+        tools:text="..." />
 
     <View
         android:id="@+id/divider3"
@@ -159,7 +159,7 @@
         android:editable="false"
         android:ems="10"
         android:inputType="text"
-        android:text="Manager"
+        android:text="..."
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView12"

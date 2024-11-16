@@ -62,4 +62,19 @@ dependencies {
     //glide
     implementation (libs.glide)
 
+    //graph
+    //implementation (libs.graphview)
+
+    //retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //json
+    implementation (libs.gson)
+
+    //biometric
+    implementation (libs.androidx.biometric)
+
+
+
 }
