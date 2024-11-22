@@ -75,6 +75,10 @@ dependencies {
     //biometric
     implementation (libs.androidx.biometric)
 
+    //location
+    implementation (libs.play.services.location)
+
+
 
 
 }

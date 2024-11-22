@@ -7,6 +7,7 @@
     android:background="@color/white"
     tools:context="Fragments.LearnFragment">
 
+    <!-- Title for Training Programs -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -20,15 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcEvents"
-        android:layout_width="match_parent"
-        android:layout_height="623dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
+    <!-- Subtitle for Training Programs -->
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -39,4 +32,27 @@
         android:textColor="@color/light_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <!-- RecyclerView for Training Programs -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcEvents"
+        android:layout_width="match_parent"
+        android:layout_height="623dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <!-- ProgressBar for Loading -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/light_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

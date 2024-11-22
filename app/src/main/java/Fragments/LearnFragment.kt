@@ -47,10 +47,18 @@ class LearnFragment : Fragment() {
     }
 
     private fun fetchPrograms(employeeEmail: String) {
+        // Show the ProgressBar and hide the RecyclerView initially
+        binding.progressBar.visibility = View.VISIBLE
+        binding.rcEvents.visibility = View.GONE
+
         RetrofitInstance.api.getPrograms(employeeEmail).enqueue(object : Callback<List<Program>> {
             override fun onResponse(call: Call<List<Program>>, response: Response<List<Program>>) {
+                // Hide the ProgressBar after getting the response
+                binding.progressBar.visibility = View.GONE
+
                 if (response.isSuccessful && response.body() != null) {
                     val programs = response.body()!!
+                    binding.rcEvents.visibility = View.VISIBLE
                     binding.rcEvents.adapter = ProgramAdapter(programs)
                 } else {
                     Toast.makeText(requireContext(), "No programs found", Toast.LENGTH_SHORT).show()
@@ -58,10 +66,13 @@ class LearnFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Program>>, t: Throwable) {
+                // Hide the ProgressBar and show an error message
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), "Failed to connect to the server", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -44,10 +44,18 @@ class AnnouncementFragment : Fragment() {
     }
 
     private fun fetchAnnouncements() {
+        // Show the ProgressBar and hide the RecyclerView initially
+        binding.progressBar.visibility = View.VISIBLE
+        binding.rcAnnouncements.visibility = View.GONE
+
         RetrofitInstance.api.getAnnouncements().enqueue(object : Callback<List<Announcement>> {
             override fun onResponse(call: Call<List<Announcement>>, response: Response<List<Announcement>>) {
+                // Hide the ProgressBar after getting the response
+                binding.progressBar.visibility = View.GONE
+
                 if (response.isSuccessful && response.body() != null) {
                     val announcements = response.body()!!
+                    binding.rcAnnouncements.visibility = View.VISIBLE
                     binding.rcAnnouncements.adapter = AnnouncementAdapter(announcements)
                 } else {
                     Toast.makeText(requireContext(), "No announcements found", Toast.LENGTH_SHORT).show()
@@ -55,10 +63,13 @@ class AnnouncementFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Announcement>>, t: Throwable) {
+                // Hide the ProgressBar and show an error message
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), "Failed to connect to the server", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

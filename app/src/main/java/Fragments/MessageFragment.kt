@@ -52,10 +52,18 @@ class MessageFragment : Fragment() {
     }
 
     private fun fetchMessages(employeeEmail: String) {
+        // Show the ProgressBar and hide the RecyclerView initially
+        binding.progressBar.visibility = View.VISIBLE
+        binding.recyclerViewMessages.visibility = View.GONE
+
         RetrofitInstance.api.getMessages(employeeEmail).enqueue(object : Callback<List<Message>> {
             override fun onResponse(call: Call<List<Message>>, response: Response<List<Message>>) {
+                // Hide the ProgressBar after getting the response
+                binding.progressBar.visibility = View.GONE
+
                 if (response.isSuccessful && response.body() != null) {
                     val messages = response.body()!!
+                    binding.recyclerViewMessages.visibility = View.VISIBLE
                     binding.recyclerViewMessages.adapter = MessageAdapter(messages)
                 } else {
                     Toast.makeText(requireContext(), "No messages found", Toast.LENGTH_SHORT).show()
@@ -63,10 +71,13 @@ class MessageFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Message>>, t: Throwable) {
+                // Hide the ProgressBar and show an error message
+                binding.progressBar.visibility = View.GONE
                 Toast.makeText(requireContext(), "Failed to connect to the server", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
